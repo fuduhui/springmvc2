@@ -34,10 +34,7 @@ public class TestServiceImpl implements ITestService {
     @Resource
     private DataSourceTransactionManager  txManager;
 
-    @Override
-    public List<Emp> test() throws Exception {
-        return testDao.listEmp();
-    }
+
 
     @Override
     public Emp getEmp(String name) throws Exception {
@@ -47,8 +44,8 @@ public class TestServiceImpl implements ITestService {
     }
 
    @Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
-    public void insertWithNoTrans(Emp emp, Purchase purchase) throws Exception {
-        int k=1;
+    public void testTrans(Emp emp, Purchase purchase) throws Exception {
+        int k=0;
         empDao.insertEmp(emp);
         int j=5/k;
         purchaseDao.insertPurchase(purchase);
